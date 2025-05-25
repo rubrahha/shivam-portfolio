@@ -2,117 +2,242 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Shivam Singh | Data Analyst Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shivam Singh - AI/ML & Data Analyst Portfolio</title>
+  <link href="./output.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto+Mono:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f4f4f9;
-      color: #333;
-    }
-    header {
-      background: #4a90e2;
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 36px;
-    }
-    header p {
-      font-size: 18px;
-    }
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    h2 {
-      color: #4a90e2;
-      margin-top: 40px;
+      font-family: 'Orbitron', sans-serif;
+      background: #0a0a23;
+      color: #ffffff;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
     .section {
-      background: white;
-      padding: 20px;
-      border-radius: 8px;
-      margin-top: 20px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
     }
-    footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 14px;
-      color: #666;
+    .card {
+      background: rgba(10, 10, 35, 0.3);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-    a {
-      color: #4a90e2;
-      text-decoration: none;
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.5);
+    }
+    .nav-link {
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+    .nav-link:hover {
+      color: #00f0ff;
+      text-shadow: 0 0 10px #00f0ff;
+    }
+    #three-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
     }
   </style>
 </head>
 <body>
+  <!-- Three.js Canvas for 3D Background -->
+  <canvas id="three-canvas"></canvas>
 
-<header>
-  <h1>Shivam Singh</h1>
-  <p>Data Analyst | MCC Specialist | Bangalore, Karnataka</p>
-</header>
+  <!-- Navigation -->
+  <nav class="fixed top-0 w-full bg-black bg-opacity-70 backdrop-blur-md z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between h-16 items-center">
+        <div class="text-2xl font-bold text-neon-cyan">Shivam Singh</div>
+        <div class="flex space-x-4">
+          <a href="#home" class="nav-link text-white hover:text-neon-cyan">Home</a>
+          <a href="#about" class="nav-link text-white hover:text-neon-cyan">About</a>
+          <a href="#projects" class="nav-link text-white hover:text-neon-cyan">Projects</a>
+          <a href="#skills" class="nav-link text-white hover:text-neon-cyan">Skills</a>
+          <a href="#contact" class="nav-link text-white hover:text-neon-cyan">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
 
-<div class="container">
+  <!-- Home Section -->
+  <section id="home" class="section bg-gradient-to-r from-black to-blue-900">
+    <div class="text-center">
+      <h1 class="text-6xl font-bold mb-4 animate__animated animate__zoomIn">Shivam Singh</h1>
+      <p class="text-2xl mb-6 animate__animated animate__fadeIn animate__delay-1s text-neon-pink">AI/ML Engineer & Data Analyst</p>
+      <a href="#projects" class="inline-block bg-neon-cyan text-black px-6 py-3 rounded-full font-semibold hover:bg-neon-pink hover:text-white transition-all duration-300">Explore My Work</a>
+    </div>
+  </section>
 
-  <div class="section">
-    <h2>About Me</h2>
-    <p>
-      Hi! I'm Shivam Singh, a detail-oriented and passionate Data Analyst with expertise in analyzing Merchant Category Codes (MCC) to derive actionable insights for business decision-making.
-      I believe in transforming data into meaningful narratives that drive performance.
-    </p>
-  </div>
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="card max-w-3xl">
+      <h2 class="text-4xl font-bold mb-4 text-neon-cyan">About Me</h2>
+      <p class="text-lg mb-4 font-roboto-mono">
+        I'm Shivam Singh, a visionary AI/ML Engineer and Data Analyst driven by the pursuit of intelligent solutions. I earned my <strong>BCA</strong> from <strong>New Horizon College, Bangalore, Karnataka</strong>, where I mastered the art of transforming data into actionable insights.
+      </p>
+      <p class="text-lg font-roboto-mono">
+        Proficient in Python, TensorFlow, and advanced analytics, I specialize in crafting futuristic systems that push boundaries. Ready to shape the next era of innovation? Let's connect!
+      </p>
+    </div>
+  </section>
 
-  <div class="section">
-    <h2>Education</h2>
-    <p>
-      🎓 Bachelor of Computer Applications (BCA)<br>
-      New Horizon College, Bangalore, Karnataka
-    </p>
-  </div>
+  <!-- Projects Section -->
+  <section id="projects" class="section bg-gradient-to-r from-blue-900 to-purple-900">
+    <div class="max-w-5xl">
+      <h2 class="text-4xl font-bold mb-8 text-center text-neon-pink">My Projects</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="card">
+          <h3 class="text-xl font-semibold mb-2 text-neon-cyan">Predictive Maintenance Model</h3>
+          <p class="font-roboto-mono">Engineered an AI model using Python and TensorFlow to forecast equipment failures, slashing downtime by 20%. Leveraged LSTM networks for time-series analysis.</p>
+        </div>
+        <div class="card">
+          <h3 class="text-xl font-semibold mb-2 text-neon-cyan">Customer Churn Analysis</h3>
+          <p class="font-roboto-mono">Developed a predictive pipeline for a telecom company to detect at-risk customers. Utilized Pandas, Scikit-learn, and Tableau for dynamic visualizations.</p>
+        </div>
+        <div class="card">
+          <h3 class="text-xl font-semibold mb-2 text-neon-cyan">Sentiment Analysis Dashboard</h3>
+          <p class="font-roboto-mono">Built a real-time NLP dashboard with Dash to analyze social media sentiment. Integrated APIs for live brand perception monitoring.</p>
+        </div>
+        <div class="card">
+          <h3 class="text-xl font-semibold mb-2 text-neon-cyan">Image Classification System</h3>
+          <p class="font-roboto-mono">Designed a CNN-based model in PyTorch, achieving 95% accuracy on medical imaging datasets for diagnostic applications.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <div class="section">
-    <h2>Work Experience</h2>
-    <p>
-      💼 <strong>Data Analyst – Merchant Category Code (MCC)</strong><br>
-      - Analyzed transaction patterns across merchant categories to detect anomalies and trends<br>
-      - Built dashboards and reports to visualize merchant behavior<br>
-      - Collaborated with risk and finance teams to ensure MCC compliance and optimization<br>
-      - Improved the accuracy of merchant classification using data-driven insights
-    </p>
-  </div>
+  <!-- Skills Section -->
+  <section id="skills" class="section">
+    <div class="card max-w-3xl">
+      <h2 class="text-4xl font-bold mb-8 text-center text-neon-pink">Skills</h2>
+      <div class="grid grid-cols-2 gap-4">
+        <div>
+          <h3 class="text-lg font-semibold text-neon-cyan">AI/ML</h3>
+          <ul class="list-disc list-inside font-roboto-mono">
+            <li>Python (NumPy, Pandas, Scikit-learn)</li>
+            <li>TensorFlow & PyTorch</li>
+            <li>Deep Learning (CNN, RNN, LSTM)</li>
+            <li>Natural Language Processing</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-neon-cyan">Data Analysis</h3>
+          <ul class="list-disc list-inside font-roboto-mono">
+            <li>SQL & NoSQL Databases</li>
+            <li>Tableau & Power BI</li>
+            <li>Data Wrangling & ETL</li>
+            <li>Statistical Analysis</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-neon-cyan">Programming</h3>
+          <ul class="list-disc list-inside font-roboto-mono">
+            <li>Python, R, JavaScript</li>
+            <li>Git & Version Control</li>
+            <li>RESTful APIs</li>
+            <li>Cloud (AWS, GCP)</li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="text-lg font-semibold text-neon-cyan">Soft Skills</h3>
+          <ul class="list-disc list-inside font-roboto-mono">
+            <li>Problem-Solving</li>
+            <li>Team Collaboration</li>
+            <li>Communication</li>
+            <li>Project Management</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <div class="section">
-    <h2>Skills</h2>
-    <ul>
-      <li>🔍 Data Analysis & Visualization</li>
-      <li>📊 Excel, SQL, Python (Pandas, Matplotlib)</li>
-      <li>🧠 Analytical Thinking & Problem Solving</li>
-      <li>💬 Excellent Communication Skills</li>
-      <li>📁 Familiar with payment gateways & financial datasets</li>
-    </ul>
-  </div>
+  <!-- Contact Section -->
+  <section id="contact" class="section bg-gradient-to-r from-purple-900 to-black">
+    <div class="card max-w-3xl text-center">
+      <h2 class="text-4xl font-bold mb-4 text-neon-cyan">Get in Touch</h2>
+      <p class="text-lg mb-4 font-roboto-mono">Ready to collaborate on futuristic AI projects? Let's make it happen!</p>
+      <p class="text-lg mb-4 font-roboto-mono">Email: <a href="mailto:rubrahha@gmail.com" class="text-neon-pink hover:underline">rubrahha@gmail.com</a></p>
+      <div class="flex justify-center space-x-4">
+        <a href="https://www.linkedin.com/in/shivam-singh-a38683219/" class="text-white hover:text-neon-cyan font-roboto-mono">LinkedIn</a>
+        <a href="https://github.com/shivamsingh" class="text-white hover:text-neon-cyan font-roboto-mono">GitHub</a>
+      </div>
+    </div>
+  </section>
 
-  <div class="section">
-    <h2>Contact Me</h2>
-    <p>
-      📧 Email: <a href="mailto:rubrahha@gmail.com">rubrahha@gmail.com.com</a><br>
-      🌐 LinkedIn: <a href="https://www.linkedin.com/in/shivam-singh-a38683219/">linkedin.com/in/shivamsingh</a><br>
-      📍 Bangalore, Karnataka
-    </p>
-  </div>
+  <script>
+    // Three.js Particle Background
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('three-canvas'), alpha: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
 
-</div>
+    const particlesGeometry = new THREE.BufferGeometry();
+    const particleCount = 5000;
+    const posArray = new Float32Array(particleCount * 3);
 
-<footer>
-  &copy; 2025 Shivam Singh. All rights reserved.
-</footer>
+    for (let i = 0; i < particleCount * 3; i++) {
+      posArray[i] = (Math.random() - 0.5) * 2000;
+    }
 
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+    const material = new THREE.PointsMaterial({
+      size: 2,
+      color: 0x00f0ff,
+      transparent: true,
+      opacity: 0.6,
+    });
+
+    const particlesMesh = new THREE.Points(particlesGeometry, material);
+    scene.add(particlesMesh);
+    camera.position.z = 500;
+
+    function animate() {
+      requestAnimationFrame(animate);
+      particlesMesh.rotation.y += 0.001;
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // GSAP Animations
+    gsap.from(".animate__animated", {
+      opacity: 0,
+      y: 50,
+      duration: 1.5,
+      stagger: 0.3,
+      ease: "power2.out"
+    });
+
+    // Smooth Scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 </body>
 </html>
